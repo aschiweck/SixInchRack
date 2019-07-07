@@ -25,13 +25,13 @@ Depth = sa50_length;
 
 xoffset = (width - sa50_width) / 2;
 yoffset = ((Units * unit) - sa50_height) / 2;
-round_holes = [[xoffset + 12, yoffset + 14, 10],
-               [xoffset + 12, yoffset + 28, 10],
-               [xoffset + 35.5, yoffset + 10, 13],
-               [xoffset + 35.5, yoffset + 26, 13],
-               [xoffset + 54, yoffset + 10, 13],
-               [xoffset+ 54, yoffset + 26, 13],
-               [xoffset + 73, yoffset + 13.5, 7]];
+round_holes = [[xoffset + 12.8, yoffset + 13.6, 11],
+               [xoffset + 12.8, yoffset + 27.6, 11],
+               [xoffset + 36.5, yoffset + 10, 13],
+               [xoffset + 36.5, yoffset + 26, 13],
+               [xoffset + 54.5, yoffset + 10, 13],
+               [xoffset + 54.5, yoffset + 26, 13],
+               [xoffset + 74, yoffset + 13.5, 8]];
 
 go();
 
