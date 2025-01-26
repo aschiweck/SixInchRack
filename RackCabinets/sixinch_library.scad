@@ -81,12 +81,14 @@ for(i=[0:8:80]){
         }
     }
 
+    if(!remove_tlsg105){
     if(len(screw_side)>0){
         for(i=[0:len(screw_side)-1]){
             p = screw_side[i];
             translate([sixinch-20-6,    unit*p    ,gauge+dp+0.1]){rotate([0,180,0]){screw();}}
             translate([20+6,    unit*p    ,gauge+dp+0.1]){rotate([0,180,0]){screw();}}
         }
+    }
     }
 }
 }
@@ -208,8 +210,10 @@ module box(dp,u,screw_bottom_front,round_peg,screw_side_front){
             p = screw_side_front[i]*unit;
                 translate([20+gauge_box,p-5,gauge]){rotate([0,-90,-90]){screwtrap();}}
                 translate([sixinch-20-gauge_box,p+5,gauge]){rotate([0,-90,90]){screwtrap();}}
+                if(!remove_tlsg105){
                 translate([20+gauge_box,p+5,gauge+dp-gauge_box]){rotate([0,90,-90]){screwtrap();}}
                 translate([sixinch-20-gauge_box,p-5,gauge+dp-gauge_box]){rotate([0,90,90]){screwtrap();}}
+                }
         }
     }
 
@@ -476,35 +480,35 @@ module frontplate(u,square_hole,round_hole,round_peg,screw_side_front,screw_top,
 
 
 
-        //Square holes
-        if(len(square_hole)>0){
-        for(i=[0:len(square_hole)-1]){
-            x = square_hole[i][0];
-            y = square_hole[i][1];
-            w = square_hole[i][2];
-            h = square_hole[i][3];
-            translate([x,y,-1]){cube([w,h,gauge+2]);}
-        }
-        }
+        /* //Square holes */
+        /* if(len(square_hole)>0){ */
+        /* for(i=[0:len(square_hole)-1]){ */
+        /*     x = square_hole[i][0]; */
+        /*     y = square_hole[i][1]; */
+        /*     w = square_hole[i][2]; */
+        /*     h = square_hole[i][3]; */
+        /*     translate([x,y,-1]){cube([w,h,gauge+2]);} */
+        /* } */
+        /* } */
 
-       //Round holes
-        if(len(round_hole)>0){
-        for(i=[0:len(round_hole)-1]){
-            x = round_hole[i][0];
-            y = round_hole[i][1];
-            d = round_hole[i][2];
-            translate([x,y,-1]){cylinder(r=d/2,gauge+1);}
-        }
-    }
+      /*  //Round holes */
+    /*     if(len(round_hole)>0){ */
+    /*     for(i=[0:len(round_hole)-1]){ */
+    /*         x = round_hole[i][0]; */
+    /*         y = round_hole[i][1]; */
+    /*         d = round_hole[i][2]; */
+    /*         translate([x,y,-1]){cylinder(r=d/2,gauge+1);} */
+    /*     } */
+    /* } */
 
         //Cabinet holes
-        frontholes(u,screw_top,screw_bottom_front,screw_side_front);
+        /* frontholes(u,screw_top,screw_bottom_front,screw_side_front); */
 
-        //Handle holes
-        translate([18,4.5,gauge-0.25]){rotate([180,0,0]){screw();}}
-        translate([18,u*unit-4.5,gauge-0.25]){rotate([180,0,0]){screw();}}
-        translate([sixinch-18,4.5,gauge-0.25]){rotate([180,0,0]){screw();}}
-        translate([sixinch-18,u*unit-4.5,gauge-0.25]){rotate([180,0,0]){screw();}}
+        /* //Handle holes */
+        /* translate([18,4.5,gauge-0.25]){rotate([180,0,0]){screw();}} */
+        /* translate([18,u*unit-4.5,gauge-0.25]){rotate([180,0,0]){screw();}} */
+        /* translate([sixinch-18,4.5,gauge-0.25]){rotate([180,0,0]){screw();}} */
+        /* translate([sixinch-18,u*unit-4.5,gauge-0.25]){rotate([180,0,0]){screw();}} */
     }
 
     //chassis support
@@ -547,14 +551,14 @@ module frontplate(u,square_hole,round_hole,round_peg,screw_side_front,screw_top,
     }
 
     //cabinet support bars
-    translate([0,0,gauge]){
-        /* translate([20+width*0.25,gauge_box,0]){  cube([width*0.5,1,1.5]);  } */
-        /* translate([20+width*0.25,unit*u-1-gauge_box,0]){  cube([width*0.5,1,1.5]);  } */
-        /* FIXME: */
-        translate([25+width*0.25,gauge_box,0]){  cube([width*0.5-12.5,1,1.5]);  }
-        translate([25+width*0.25,unit*u-1-gauge_box,0]){  cube([width*0.5-12.5,1,1.5]);  }
+    /* translate([0,0,gauge]){ */
+    /*     /\* translate([20+width*0.25,gauge_box,0]){  cube([width*0.5,1,1.5]);  } *\/ */
+    /*     /\* translate([20+width*0.25,unit*u-1-gauge_box,0]){  cube([width*0.5,1,1.5]);  } *\/ */
+    /*     /\* FIXME: *\/ */
+    /*     translate([25+width*0.25,gauge_box,0]){  cube([width*0.5-12.5,1,1.5]);  } */
+    /*     translate([25+width*0.25,unit*u-1-gauge_box,0]){  cube([width*0.5-12.5,1,1.5]);  } */
 
-    }
+    /* } */
 
 
 
