@@ -1,3 +1,5 @@
+stand_offset = 16.0;
+
 include<../sixinch_library.scad>
 
 debug = false;
@@ -18,8 +20,7 @@ if (debug) {
 sa50_length = 117.5;
 sa50_height = 39;
 sa50_width = 88;
-
-Part = "a"; // [a:All, b:FrontPlate, b2:FrontPlate2, c:Cabinet, d:Lid, e:BackPlate, f:Handles]
+Part = "e"; // [a:All, b:FrontPlate, b2:FrontPlate2, c:Cabinet, d:Lid, e:BackPlate, f:Handles]
 Units = 5;
 Depth = sa50_length;
 
@@ -31,7 +32,7 @@ round_holes = [[xoffset + 12.8, yoffset + 13.6, 11],
                [xoffset + 36.5, yoffset + 26, 13],
                [xoffset + 54.5, yoffset + 10, 13],
                [xoffset + 54.5, yoffset + 26, 13],
-               [xoffset + 74, yoffset + 13.5, 8]];
+               [xoffset + 74, yoffset + 13.5, 11]];
 
 go();
 
@@ -160,29 +161,29 @@ module cabinet_supported () {
                          cylinder(h=25, r=5);
                     }
                }
-
+// this
                difference () {
-                    translate([((sixinch - sa50_width) / 2) + 5 + 10, 20, sa50_length - 12 - 5]) {
+                    translate([((sixinch - sa50_width) / 2) + 5 + 10, 20, sa50_length - stand_offset + 4 - 5]) {
                          rotate([90, 0, 0]) {
                               cylinder(h=20, r=5 + 2);
                          }
                     }
-                    translate([((sixinch - sa50_width) / 2) + 5 + 10, 20, sa50_length - 12]) {
+                    translate([((sixinch - sa50_width) / 2) + 5 + 10, 20 - 4, sa50_length - stand_offset + 4]) {
                          rotate([90, 0, 0]) {
-                              cylinder(h=8, r=5.5);
+                              cylinder(h=4, r1=6, r2=5.5);
                          }
                     }
                }
-
+// this 16.5
                difference () {
-                    translate([((sixinch - sa50_width) / 2) + sa50_width - 5 - 10, 20, sa50_length - 12 - 5]) {
+                    translate([((sixinch - sa50_width) / 2) + sa50_width - 5 - 10, 20, sa50_length - stand_offset + 4 - 5]) {
                          rotate([90, 0, 0]) {
                               cylinder(h=20, r=5 + 2);
                          }
                     }
-                    translate([((sixinch - sa50_width) / 2) + sa50_width - 5 - 10, 20, sa50_length - 12]) {
+                    translate([((sixinch - sa50_width) / 2) + sa50_width - 5 - 10, 20 - 4, sa50_length - stand_offset + 4]) {
                          rotate([90, 0, 0]) {
-                              cylinder(h=8, r=5.5);
+                              cylinder(h=4, r1=6, r2=5.5);
                          }
                     }
                }
